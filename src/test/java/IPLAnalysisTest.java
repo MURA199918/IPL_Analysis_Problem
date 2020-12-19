@@ -114,7 +114,16 @@ public class IPLAnalysisTest {
         IPLAnalysis iplAnalysis = new IPLAnalysis();
         iplAnalysis.loadIplBowlerData(BOWLER_PATH);
         iplAnalysis.getTopBowlingAverageDataWithBestStrikeRates();
-        Assert.assertEquals("Shivam Dube",IPLAnalysis.IplBowlerData.get(0).getPlayer());
+        Assert.assertEquals("Krishnappa Gowtham",IPLAnalysis.IplBowlerData.get(IPLAnalysis.IplBowlerData.size()-1).getPlayer());
+        System.out.println("Answer found");
+    }
+
+    @Test
+    public void givenIPLRunsData_ShouldReturn_MostWickets_WithBestAverages_ofCricketers() throws IPLAnalysisException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBowlerData(BOWLER_PATH);
+        iplAnalysis.getMostWicketsDataWithBestAverages();
+        Assert.assertEquals("Imran Tahir",IPLAnalysis.IplBowlerData.get(IPLAnalysis.IplBowlerData.size()-1).getPlayer());
         System.out.println("Answer found");
     }
 

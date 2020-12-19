@@ -169,4 +169,9 @@ public class IPLAnalysis {
         Comparator<IPLBowler> iplBowlerComparator = Comparator.comparingDouble(IPLBowler::getAverage).thenComparing(IPLBowler::getStrikeRate);
         Collections.sort(IplBowlerData,iplBowlerComparator);
     }
+
+    public void getMostWicketsDataWithBestAverages() {
+        Comparator<IPLBowler> iplBowlerComparator = Comparator.comparingInt(IPLBowler::getWickets).thenComparing(IPLBowler::getAverage);
+        Collections.sort(IplBowlerData,iplBowlerComparator);
+    }
 }
