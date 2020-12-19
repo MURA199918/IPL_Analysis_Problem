@@ -113,4 +113,20 @@ public class IPLAnalysis {
         fileWriter.write(json);
         fileWriter.close();
     }
+
+    public void getTopStrikeRateDataWithSixesAndFours() throws IOException{
+        Comparator com = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                IPLBatsman b1 = (IPLBatsman)o1;
+                IPLBatsman b2 = (IPLBatsman)o2;
+
+                if(((b1.getSixes()+b1.getFours())>(b2.getFours()+b2.getSixes())) && (b1.getStrikeRate()>b2.getStrikeRate()))
+                    return -3;
+                else
+                    return 3;
+            }
+        };
+        Collections.sort(IplBatsmanData,com);
+    }
 }

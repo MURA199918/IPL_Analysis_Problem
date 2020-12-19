@@ -46,4 +46,13 @@ public class IPLAnalysisTest {
         System.out.println("Answer found");
     }
 
+    @Test
+    public void givenIPLRunsData_ShouldReturn_BestStrikeRateWith_SixesAndFours_ofCricketers() throws IPLAnalysisException, IOException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
+        iplAnalysis.getTopStrikeRateDataWithSixesAndFours();
+        Assert.assertEquals("Andre Russell",IPLAnalysis.IplBatsmanData.get(0).getPlayer());
+        System.out.println("Answer found");
+    }
+
 }
