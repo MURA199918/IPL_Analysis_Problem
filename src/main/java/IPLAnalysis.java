@@ -164,4 +164,9 @@ public class IPLAnalysis {
         Collections.sort(IplBowlerData,iplBowlerComparator);
         IplBowlerData = IplBowlerData.stream().filter(s->(s.getFiveWicketHaul()!=0 || s.getFourWicketHaul()!=0)).collect(Collectors.toList());
     }
+
+    public void getTopBowlingAverageDataWithBestStrikeRates() {
+        Comparator<IPLBowler> iplBowlerComparator = Comparator.comparingDouble(IPLBowler::getAverage).thenComparing(IPLBowler::getStrikeRate);
+        Collections.sort(IplBowlerData,iplBowlerComparator);
+    }
 }

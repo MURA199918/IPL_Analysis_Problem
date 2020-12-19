@@ -109,4 +109,13 @@ public class IPLAnalysisTest {
         System.out.println("Answer found");
     }
 
+    @Test
+    public void givenIPLRunsData_ShouldReturn_TopBowlingAverage_WithBestStrikeRates_ofCricketers() throws IPLAnalysisException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBowlerData(BOWLER_PATH);
+        iplAnalysis.getTopBowlingAverageDataWithBestStrikeRates();
+        Assert.assertEquals("Shivam Dube",IPLAnalysis.IplBowlerData.get(0).getPlayer());
+        System.out.println("Answer found");
+    }
+
 }
