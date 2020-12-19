@@ -16,11 +16,12 @@ public class IPLAnalysis {
 
     public static final String TOP_BATTING_AVG_FILE = "C:\\Users\\mural\\IdeaProjects\\IPL_Analysis_Problem\\src\\test\\resources\\TopBattingAverage.json";
     private static final String TOP_STRIKE_RATE_FILE = "C:\\Users\\mural\\IdeaProjects\\IPL_Analysis_Problem\\src\\test\\resources\\TopBattingStrikeRate.json";
+    private static final String TOP_Fours_Sixes_FILE = "C:\\Users\\mural\\IdeaProjects\\IPL_Analysis_Problem\\src\\test\\resources\\TopSixesAndFours.json";
     public static List<IPLBatsman> IplBatsmanData;
     public static List<IPLBowler> IplBowlerData;
 
 
-    public int loadIplBatsmanStat(String csvFilePath) throws IPLAnalysisException {
+    public int loadIplBatsmanData(String csvFilePath) throws IPLAnalysisException {
         try(Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
             CSVReader csvReader = new CSVReader(reader);){
 
@@ -31,7 +32,7 @@ public class IPLAnalysis {
         }
     }
 
-    public int loadIplBowlerStat(String csvFilePath) throws IPLAnalysisException {
+    public int loadIplBowlerData(String csvFilePath) throws IPLAnalysisException {
         try(Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
             CSVReader csvReader = new CSVReader(reader);){
 
@@ -91,5 +92,25 @@ public class IPLAnalysis {
         fileWriter.write(json);
         fileWriter.close();
 
+    }
+
+    public void getTopSixesAndFours() throws IOException {
+        Comparator com = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                IPLBatsman b1 = (IPLBatsman)o1;
+                IPLBatsman b2 = (IPLBatsman)o2;
+                if((b1.getSixes()+b1.getFours())>(b2.getFours()+b2.getSixes()))
+                    return -3;
+                else
+                    return 3;
+            }
+        };
+        Collections.sort(IplBatsmanData,com);
+        Gson gson = new Gson();
+        String json =gson.toJson(IplBatsmanData);
+        FileWriter fileWriter = new FileWriter(TOP_Fours_Sixes_FILE);
+        fileWriter.write(json);
+        fileWriter.close();
     }
 }
