@@ -3,6 +3,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.List;
 
 public class IPLAnalysisTest {
 
@@ -124,6 +125,16 @@ public class IPLAnalysisTest {
         iplAnalysis.loadIplBowlerData(BOWLER_PATH);
         iplAnalysis.getMostWicketsDataWithBestAverages();
         Assert.assertEquals("Imran Tahir",IPLAnalysis.IplBowlerData.get(IPLAnalysis.IplBowlerData.size()-1).getPlayer());
+        System.out.println("Answer found");
+    }
+
+    @Test
+    public void givenIPLRunsData_ShouldReturn_BestBattingAverage_AndBowlingAverage_ofCricketers() throws IPLAnalysisException, IOException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
+        iplAnalysis.loadIplBowlerData(BOWLER_PATH);
+        List<String> namesList = iplAnalysis.getTopBattingAverageDataWithBowlingAverageData();
+        Assert.assertEquals("Andre Russell",namesList.get(namesList.size()-1));
         System.out.println("Answer found");
     }
 

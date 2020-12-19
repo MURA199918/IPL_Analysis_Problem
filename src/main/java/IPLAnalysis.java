@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -173,5 +174,21 @@ public class IPLAnalysis {
     public void getMostWicketsDataWithBestAverages() {
         Comparator<IPLBowler> iplBowlerComparator = Comparator.comparingInt(IPLBowler::getWickets).thenComparing(IPLBowler::getAverage);
         Collections.sort(IplBowlerData,iplBowlerComparator);
+    }
+
+    public List<String> getTopBattingAverageDataWithBowlingAverageData() {
+        Comparator<IPLBowler> iplBowlerComparator = Comparator.comparingDouble(IPLBowler::getAverage);
+        Comparator<IPLBatsman> iplBatsmanComparator = Comparator.comparingDouble(IPLBatsman::getAverage);
+        Collections.sort(IplBowlerData,iplBowlerComparator);
+        Collections.sort(IplBatsmanData,iplBatsmanComparator);
+        List<String> newList = new ArrayList();
+        for(IPLBatsman batsman: IplBatsmanData){
+            for(IPLBowler bowler: IplBowlerData){
+                if(batsman.getPlayer().equals(bowler.getPlayer())){
+                    newList.add(bowler.getPlayer());
+                }
+            }
+        }
+        return newList;
     }
 }
