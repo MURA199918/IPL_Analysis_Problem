@@ -15,6 +15,7 @@ import java.util.List;
 public class IPLAnalysis {
 
     public static final String TOP_BATTING_AVG_FILE = "C:\\Users\\mural\\IdeaProjects\\IPL_Analysis_Problem\\src\\test\\resources\\TopBattingAverage.json";
+    private static final String TOP_STRIKE_RATE_FILE = "C:\\Users\\mural\\IdeaProjects\\IPL_Analysis_Problem\\src\\test\\resources\\TopBattingStrikeRate.json";
     public static List<IPLBatsman> IplBatsmanData;
     public static List<IPLBowler> IplBowlerData;
 
@@ -69,5 +70,26 @@ public class IPLAnalysis {
         FileWriter fileWriter = new FileWriter(TOP_BATTING_AVG_FILE);
         fileWriter.write(json);
         fileWriter.close();
+    }
+
+    public void getTopStrikeRateData() throws IOException {
+        Comparator com = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                IPLBatsman b1 = (IPLBatsman)o1;
+                IPLBatsman b2 = (IPLBatsman)o2;
+                if(b1.getStrikeRate()>b2.getStrikeRate())
+                    return -3;
+                else
+                    return 3;
+            }
+        };
+        Collections.sort(IplBatsmanData,com);
+        Gson gson = new Gson();
+        String json =gson.toJson(IplBatsmanData);
+        FileWriter fileWriter = new FileWriter(TOP_STRIKE_RATE_FILE);
+        fileWriter.write(json);
+        fileWriter.close();
+
     }
 }

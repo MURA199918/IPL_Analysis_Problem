@@ -28,4 +28,13 @@ public class IPLAnalysisTest {
         System.out.println("Answer found");
     }
 
+    @Test
+    public void givenIPLRunsData_ShouldReturn_TopStrikeRates_ofCricketers() throws IPLAnalysisException, IOException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBatsmanStat(BATSMAN_PATH);
+        iplAnalysis.getTopStrikeRateData();
+        Assert.assertEquals("Ishant Sharma",IPLAnalysis.IplBatsmanData.get(0).getPlayer());
+        System.out.println("Answer found");
+    }
+
 }
