@@ -129,4 +129,9 @@ public class IPLAnalysis {
         };
         Collections.sort(IplBatsmanData,com);
     }
+
+    public void getTopAverageDataWithBestStrikeRates() {
+        Comparator<IPLBatsman> iplBatsmanDataComparator = Comparator.comparingDouble(IPLBatsman::getAverage).thenComparing(IPLBatsman::getStrikeRate);
+        Collections.sort(IplBatsmanData,iplBatsmanDataComparator);
+    }
 }

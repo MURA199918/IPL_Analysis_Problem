@@ -55,4 +55,13 @@ public class IPLAnalysisTest {
         System.out.println("Answer found");
     }
 
+    @Test
+    public void givenIPLRunsData_ShouldReturn_BestAverageWith_BestStrikeRates_ofCricketers() throws IPLAnalysisException, IOException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
+        iplAnalysis.getTopAverageDataWithBestStrikeRates();
+        Assert.assertEquals("MS Dhoni",IPLAnalysis.IplBatsmanData.get(IPLAnalysis.IplBatsmanData.size()-1).getPlayer());
+        System.out.println("Answer found");
+    }
+
 }
