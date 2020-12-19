@@ -157,4 +157,12 @@ public class IPLAnalysisTest {
         System.out.println("Answer found");
     }
 
+    @Test
+    public void givenIPLRunsData_ShouldReturn_0HundredsAnd0Fifties_WithBestBattingAverages_ofCricketers() throws IPLAnalysisException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
+        iplAnalysis.getNoHundredsAndNoFiftyDataWithBestAverages();
+        Assert.assertEquals("Marcus Stoinis",IPLAnalysis.IplBatsmanData.get(IPLAnalysis.IplBatsmanData.size()-1).getPlayer());
+        System.out.println("Answer found");
+    }
 }

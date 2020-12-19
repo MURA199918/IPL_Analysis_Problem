@@ -213,4 +213,10 @@ public class IPLAnalysis {
         Comparator<IPLBatsman> iplBatsmanComparator = Comparator.comparingInt(IPLBatsman::getCenturies).thenComparing(IPLBatsman::getAverage);
         Collections.sort(IplBatsmanData,iplBatsmanComparator);
     }
+
+    public void getNoHundredsAndNoFiftyDataWithBestAverages() {
+        Comparator<IPLBatsman> iplBatsmanComparator = Comparator.comparingInt(IPLBatsman::getCenturies).thenComparing(IPLBatsman::getHalfCenturies).thenComparing(IPLBatsman::getAverage);
+        Collections.sort(IplBatsmanData,iplBatsmanComparator);
+        IplBatsmanData = IplBatsmanData.stream().filter(s->(s.getCenturies()==0 && s.getHalfCenturies()==0)).collect(Collectors.toList());
+    }
 }
