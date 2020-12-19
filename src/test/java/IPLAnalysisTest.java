@@ -129,11 +129,21 @@ public class IPLAnalysisTest {
     }
 
     @Test
-    public void givenIPLRunsData_ShouldReturn_BestBattingAverage_AndBowlingAverage_ofCricketers() throws IPLAnalysisException, IOException {
+    public void givenIPLRunsData_ShouldReturn_BestBattingAverage_AndBowlingAverage_ofCricketers() throws IPLAnalysisException {
         IPLAnalysis iplAnalysis = new IPLAnalysis();
         iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
         iplAnalysis.loadIplBowlerData(BOWLER_PATH);
         List<String> namesList = iplAnalysis.getTopBattingAverageDataWithBowlingAverageData();
+        Assert.assertEquals("Andre Russell",namesList.get(namesList.size()-1));
+        System.out.println("Answer found");
+    }
+
+    @Test
+    public void givenIPLRunsData_ShouldReturn_MostRuns_AndMostWickets_ofCricketers() throws IPLAnalysisException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
+        iplAnalysis.loadIplBowlerData(BOWLER_PATH);
+        List<String> namesList = iplAnalysis.getMostRunsDataWithMostWicketsData();
         Assert.assertEquals("Andre Russell",namesList.get(namesList.size()-1));
         System.out.println("Answer found");
     }

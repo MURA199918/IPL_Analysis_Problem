@@ -191,4 +191,21 @@ public class IPLAnalysis {
         }
         return newList;
     }
+
+    public List<String> getMostRunsDataWithMostWicketsData() {
+        Comparator<IPLBowler> iplBowlerComparator = Comparator.comparingInt(IPLBowler::getWickets);
+        Comparator<IPLBatsman> iplBatsmanComparator = Comparator.comparingInt(IPLBatsman::getRuns);
+        Collections.sort(IplBowlerData,iplBowlerComparator);
+        Collections.sort(IplBatsmanData,iplBatsmanComparator);
+        List<String> newList = new ArrayList();
+        for(IPLBatsman batsman: IplBatsmanData){
+            for(IPLBowler bowler: IplBowlerData){
+                if(batsman.getPlayer().equals(bowler.getPlayer())){
+                    newList.add(bowler.getPlayer());
+                }
+            }
+        }
+        return newList;
+
+    }
 }
