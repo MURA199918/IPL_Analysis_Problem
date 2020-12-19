@@ -208,4 +208,9 @@ public class IPLAnalysis {
         return newList;
 
     }
+
+    public void getMostHundredsDataWithBestAverages() {
+        Comparator<IPLBatsman> iplBatsmanComparator = Comparator.comparingInt(IPLBatsman::getCenturies).thenComparing(IPLBatsman::getAverage);
+        Collections.sort(IplBatsmanData,iplBatsmanComparator);
+    }
 }

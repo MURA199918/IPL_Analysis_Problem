@@ -148,4 +148,13 @@ public class IPLAnalysisTest {
         System.out.println("Answer found");
     }
 
+    @Test
+    public void givenIPLRunsData_ShouldReturn_MostHundreds_WithBestBattingAverages_ofCricketers() throws IPLAnalysisException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
+        iplAnalysis.getMostHundredsDataWithBestAverages();
+        Assert.assertEquals("David Warner",IPLAnalysis.IplBatsmanData.get(IPLAnalysis.IplBatsmanData.size()-1).getPlayer());
+        System.out.println("Answer found");
+    }
+
 }
