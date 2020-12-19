@@ -73,4 +73,13 @@ public class IPLAnalysisTest {
         System.out.println("Answer found");
     }
 
+    @Test
+    public void givenIPLRunsData_ShouldReturn_TopBowlingAverages_ofCricketers() throws IPLAnalysisException, IOException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBowlerData(BOWLER_PATH);
+        iplAnalysis.getTopBowlingAverageData();
+        Assert.assertEquals("Anukul Roy",IPLAnalysis.IplBowlerData.get(0).getPlayer());
+        System.out.println("Answer found");
+    }
+
 }
