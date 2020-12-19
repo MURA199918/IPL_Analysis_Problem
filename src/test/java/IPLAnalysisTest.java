@@ -56,11 +56,20 @@ public class IPLAnalysisTest {
     }
 
     @Test
-    public void givenIPLRunsData_ShouldReturn_BestAverageWith_BestStrikeRates_ofCricketers() throws IPLAnalysisException, IOException {
+    public void givenIPLRunsData_ShouldReturn_BestAverageWith_BestStrikeRates_ofCricketers() throws IPLAnalysisException {
         IPLAnalysis iplAnalysis = new IPLAnalysis();
         iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
         iplAnalysis.getTopAverageDataWithBestStrikeRates();
         Assert.assertEquals("MS Dhoni",IPLAnalysis.IplBatsmanData.get(IPLAnalysis.IplBatsmanData.size()-1).getPlayer());
+        System.out.println("Answer found");
+    }
+
+    @Test
+    public void givenIPLRunsData_ShouldReturn_MaximumRunsWith_BestAverage_ofCricketers() throws IPLAnalysisException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBatsmanData(BATSMAN_PATH);
+        iplAnalysis.getMaximumRunsDataWithBestAverage();
+        Assert.assertEquals("David Warner",IPLAnalysis.IplBatsmanData.get(IPLAnalysis.IplBatsmanData.size()-1).getPlayer());
         System.out.println("Answer found");
     }
 

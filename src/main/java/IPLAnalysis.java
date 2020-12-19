@@ -134,4 +134,9 @@ public class IPLAnalysis {
         Comparator<IPLBatsman> iplBatsmanDataComparator = Comparator.comparingDouble(IPLBatsman::getAverage).thenComparing(IPLBatsman::getStrikeRate);
         Collections.sort(IplBatsmanData,iplBatsmanDataComparator);
     }
+
+    public void getMaximumRunsDataWithBestAverage() {
+        Comparator<IPLBatsman> iplBatsmanDataComparator = Comparator.comparingDouble(IPLBatsman::getRuns).thenComparing(IPLBatsman::getAverage);
+        Collections.sort(IplBatsmanData,iplBatsmanDataComparator);
+    }
 }
