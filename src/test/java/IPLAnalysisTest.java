@@ -74,7 +74,7 @@ public class IPLAnalysisTest {
     }
 
     @Test
-    public void givenIPLRunsData_ShouldReturn_TopBowlingAverages_ofCricketers() throws IPLAnalysisException, IOException {
+    public void givenIPLRunsData_ShouldReturn_TopBowlingAverages_ofCricketers() throws IPLAnalysisException {
         IPLAnalysis iplAnalysis = new IPLAnalysis();
         iplAnalysis.loadIplBowlerData(BOWLER_PATH);
         iplAnalysis.getTopBowlingAverageData();
@@ -83,7 +83,7 @@ public class IPLAnalysisTest {
     }
 
     @Test
-    public void givenIPLRunsData_ShouldReturn_TopBowlingStrikeRates_ofCricketers() throws IPLAnalysisException, IOException {
+    public void givenIPLRunsData_ShouldReturn_TopBowlingStrikeRates_ofCricketers() throws IPLAnalysisException{
         IPLAnalysis iplAnalysis = new IPLAnalysis();
         iplAnalysis.loadIplBowlerData(BOWLER_PATH);
         iplAnalysis.getTopBowlingStrikeRateData();
@@ -92,11 +92,20 @@ public class IPLAnalysisTest {
     }
 
     @Test
-    public void givenIPLRunsData_ShouldReturn_TopBowlingEconomy_ofCricketers() throws IPLAnalysisException, IOException {
+    public void givenIPLRunsData_ShouldReturn_TopBowlingEconomy_ofCricketers() throws IPLAnalysisException {
         IPLAnalysis iplAnalysis = new IPLAnalysis();
         iplAnalysis.loadIplBowlerData(BOWLER_PATH);
         iplAnalysis.getTopBowlingEconomyData();
         Assert.assertEquals("Shivam Dube",IPLAnalysis.IplBowlerData.get(0).getPlayer());
+        System.out.println("Answer found");
+    }
+
+    @Test
+    public void givenIPLRunsData_ShouldReturn_TopBowlingStrikeRates_With4WAnd5WHaul_ofCricketers() throws IPLAnalysisException{
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBowlerData(BOWLER_PATH);
+        iplAnalysis.getTopBowlingStrikeRateDataWith4Wand5WHaul();
+        Assert.assertEquals("Alzarri Joseph",IPLAnalysis.IplBowlerData.get(0).getPlayer());
         System.out.println("Answer found");
     }
 
