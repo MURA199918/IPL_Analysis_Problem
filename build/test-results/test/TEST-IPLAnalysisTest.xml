@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="IPLAnalysisTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-19T14:36:58" hostname="DESKTOP-J9DM2GE" time="0.324">
+<testsuite name="IPLAnalysisTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-19T14:48:43" hostname="DESKTOP-J9DM2GE" time="0.339">
   <properties/>
-  <testcase name="givenIPLRunsData_ShouldReturn_TopBowlingAverages_ofCricketers" classname="IPLAnalysisTest" time="0.324"/>
+  <testcase name="givenIPLRunsData_ShouldReturn_TopBowlingEconomy_ofCricketers" classname="IPLAnalysisTest" time="0.339"/>
   <system-out><![CDATA[Answer found
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

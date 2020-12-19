@@ -147,4 +147,15 @@ public class IPLAnalysis {
         IplBowlerData = IplBowlerData.stream().filter(s -> (s.getAverage() != 0)).collect(Collectors.toList());
     }
 
+    public void getTopBowlingStrikeRateData() {
+        Comparator<IPLBowler> iplBowlerComparator = Comparator.comparingDouble(IPLBowler::getStrikeRate);
+        Collections.sort(IplBowlerData, iplBowlerComparator);
+        IplBowlerData = IplBowlerData.stream().filter(s -> (s.getStrikeRate() != 0)).collect(Collectors.toList());
+    }
+
+    public void getTopBowlingEconomyData() {
+        Comparator<IPLBowler> iplBowlerComparator = Comparator.comparingDouble(IPLBowler::getEconomy);
+        Collections.sort(IplBowlerData, iplBowlerComparator);
+        IplBowlerData = IplBowlerData.stream().filter(s -> (s.getEconomy() != 0)).collect(Collectors.toList());
+    }
 }

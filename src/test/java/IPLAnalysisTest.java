@@ -82,4 +82,22 @@ public class IPLAnalysisTest {
         System.out.println("Answer found");
     }
 
+    @Test
+    public void givenIPLRunsData_ShouldReturn_TopBowlingStrikeRates_ofCricketers() throws IPLAnalysisException, IOException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBowlerData(BOWLER_PATH);
+        iplAnalysis.getTopBowlingStrikeRateData();
+        Assert.assertEquals("Alzarri Joseph",IPLAnalysis.IplBowlerData.get(0).getPlayer());
+        System.out.println("Answer found");
+    }
+
+    @Test
+    public void givenIPLRunsData_ShouldReturn_TopBowlingEconomy_ofCricketers() throws IPLAnalysisException, IOException {
+        IPLAnalysis iplAnalysis = new IPLAnalysis();
+        iplAnalysis.loadIplBowlerData(BOWLER_PATH);
+        iplAnalysis.getTopBowlingEconomyData();
+        Assert.assertEquals("Shivam Dube",IPLAnalysis.IplBowlerData.get(0).getPlayer());
+        System.out.println("Answer found");
+    }
+
 }
